@@ -1,0 +1,23 @@
+- name: installing {{ pkg }} packages
+  ansible.builtin.dnf:
+    name: "{{ pkg }}"
+    state: latest 
+- name: start and enable {{ svc }} package
+  ansible.builtin.service:
+    name: "{{ svc }}"
+    state: started
+    enabled: yes
+- name: allow {{ fw }} from firewall
+  ansible.posix.firewalld:
+    service: "{{ fw }}"
+    permanent: true
+    immediate: true
+    state: enabled
+- name: template {{ pkg }} website
+  ansible.builtin.template:
+    src: templates/tempindex.html.j2
+    dest: /usr/share/testpage/index.html
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart

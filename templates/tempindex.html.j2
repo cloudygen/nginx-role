@@ -1,0 +1,9 @@
+<h1>FQDN of the host is: {{ ansible_facts['fqdn'] }}<br>
+Hostname of the host is: {{ ansible_facts['hostname'] }}<br>
+IP Address of the host is: {{ ansible_facts['default_ipv4']['address'] }}<br>
+Size of /dev/sda of the host is: {{ ansible_facts['devices']['sda']['size'] }}<br> 
+Distribution of the host is: {{ ansible_facts['distribution'] }}<br>
+Distribution version of the host is: {{ ansible_facts['distribution_version'] }}<br>
+BIOS version of the host is: {{ ansible_facts['bios_version'] }}<br>
+Total Memory of the host is: {{ ansible_facts['memtotal_mb'] }}</h1><br>
+<h2>This is Deployed using roles</h2>

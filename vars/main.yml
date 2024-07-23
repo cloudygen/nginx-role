@@ -1,0 +1,3 @@
+pkg: nginx
+fw: http
+svc: nginx
